@@ -1,0 +1,13 @@
+IStatement ex24 = new CompoundStatement(new NewStatement("v1", new ConstExpression(2)),
+                new CompoundStatement(new NewStatement("v2", new ConstExpression(3)),
+                        new CompoundStatement(new NewStatement("v3", new ConstExpression(4)),
+                                new CompoundStatement(new NewLatchStatement("cnt", new ReadExpression("v2")),
+                                        new CompoundStatement(new ForkStatement(new CompoundStatement(new WriteStatement("v1", new ArithmeticExpression(ArithmeticExpression.Operation.MULTIPLY, new ReadExpression("v1"), new ConstExpression(10))), new PrintStatement(new ReadExpression("v1")))),
+                                                new CompoundStatement(new CountDownStatement("cnt"),
+                                                        new CompoundStatement(new ForkStatement(new CompoundStatement(new WriteStatement("v2", new ArithmeticExpression(ArithmeticExpression.Operation.MULTIPLY, new ReadExpression("v2"), new ConstExpression(10))), new PrintStatement(new ReadExpression("v2")))),
+                                                                new CompoundStatement(new CountDownStatement("cnt"),
+                                                                        new CompoundStatement(new ForkStatement(new CompoundStatement(new WriteStatement("v3", new ArithmeticExpression(ArithmeticExpression.Operation.MULTIPLY, new ReadExpression("v3"), new ConstExpression(10))), new PrintStatement(new ReadExpression("v3")))),
+                                                                                new CompoundStatement(new CountDownStatement("cnt"),
+                                                                                        new CompoundStatement(new AwaitStatement("cnt"),
+                                                                                                new CompoundStatement(new PrintStatement(new ConstExpression(100)),
+                                                                                                        new CompoundStatement(new CountDownStatement("cnt"), new PrintStatement(new ConstExpression(100)))))))))))))));

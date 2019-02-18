@@ -1,0 +1,6 @@
+.list-view .list-cell:even {
+-fx-background-color: #90ee90;
+}
+.list-cell:filled:selected:even {
+-fx-text-fill: blue;
+}

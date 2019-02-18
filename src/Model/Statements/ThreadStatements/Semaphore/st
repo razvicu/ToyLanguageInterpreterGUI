@@ -1,0 +1,58 @@
+ IStatement ex22 = new CompoundStatement(new NewSemaphoreStatement("v", new ConstExpression(2)),
+                new CompoundStatement(
+                        new ForkStatement(
+                                new CompoundStatement(
+                                        new AcquireStatement("v"), new CompoundStatement(
+                                        new PrintStatement(new ConstExpression(1)), new ReleaseStatement("v")
+                                )
+                                )
+                        ), new CompoundStatement(
+                        new ForkStatement(
+                                new CompoundStatement(
+                                        new AcquireStatement("v"), new CompoundStatement(
+                                        new PrintStatement(new ConstExpression(2)), new ReleaseStatement("v")
+                                )
+                                )
+                        ),
+                        new ForkStatement(
+                                new CompoundStatement(
+                                        new AcquireStatement("v"), new CompoundStatement(
+                                        new PrintStatement(new ConstExpression(3)), new ReleaseStatement("v")
+                                )
+                                )
+                        )
+                )
+                ));
+
+        IStatement ex23 = new CompoundStatement(
+                new NewStatement("v1", new ConstExpression(1)), new CompoundStatement(
+                new NewSemaphoreStatement("cnt", new ReadExpression("v1")), new CompoundStatement(
+                new ForkStatement(
+                        new CompoundStatement(
+                                new AcquireStatement("cnt"), new CompoundStatement(
+                                new WriteStatement("v1", new ArithmeticExpression(ArithmeticExpression.Operation.MULTIPLY, new ReadExpression("v1"), new ConstExpression(10))), new CompoundStatement(
+                                new PrintStatement(new ReadExpression("v1")), new ReleaseStatement("cnt")
+                        )
+                        )
+                        )
+                ), new CompoundStatement(
+                new ForkStatement(
+                        new CompoundStatement(
+                                new AcquireStatement("cnt"), new CompoundStatement(
+                                new WriteStatement("v1", new ArithmeticExpression(ArithmeticExpression.Operation.MULTIPLY, new ReadExpression("v1"), new ConstExpression(10))), new CompoundStatement(
+                                new WriteStatement("v1", new ArithmeticExpression(ArithmeticExpression.Operation.MULTIPLY, new ReadExpression("v1"), new ConstExpression(2))), new CompoundStatement(
+                                new PrintStatement(new ReadExpression("v1")), new ReleaseStatement("cnt")
+                        )
+                        )
+                        )
+                        )
+                ), new CompoundStatement(
+                new AcquireStatement("cnt"), new CompoundStatement(
+                new PrintStatement(new ArithmeticExpression(ArithmeticExpression.Operation.SUBTRACT, new ReadExpression("v1"), new ConstExpression(1))), new ReleaseStatement("cnt")
+        )
+        )
+        )
+        )
+        )
+        );
+

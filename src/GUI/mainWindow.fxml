@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainController">
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <ListView fx:id="executionStackView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+      <ListView fx:id="programStateView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="6" />
+      <Button fx:id="executionButton" mnemonicParsing="false" text="Execute" GridPane.columnIndex="1" GridPane.rowIndex="6">
+         <GridPane.margin>
+            <Insets left="65.0" />
+         </GridPane.margin></Button>
+      <Label text="Heap Table" GridPane.columnIndex="1" />
+      <Label text="Program States ID" GridPane.rowIndex="5" />
+      <Label text="Execution Stack" GridPane.columnIndex="3" />
+      <Label text="File Table" GridPane.columnIndex="2" />
+      <TableView fx:id="heapTableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <columns>
+          <TableColumn fx:id="heapAddress" prefWidth="75.0" text="Address" />
+          <TableColumn fx:id="heapValue" prefWidth="75.0" text="Value" />
+        </columns>
+      </TableView>
+      <ListView fx:id="outputListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+      <Label text="Output list" GridPane.columnIndex="4" />
+      <TableView fx:id="fileTableView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+        <columns>
+          <TableColumn fx:id="fileDescriptor" prefWidth="95.0" text="Descriptor" />
+          <TableColumn fx:id="fileName" prefWidth="55.0" text="Name" />
+        </columns>
+      </TableView>
+      <TableView fx:id="symbolsTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+        <columns>
+          <TableColumn fx:id="variableName" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="variableValue" prefWidth="75.0" text="Value" />
+        </columns>
+      </TableView>
+      <Label text="Symbols Table" />
+      <Label fx:id="programStatesNo" alignment="BOTTOM_CENTER" layoutY="100.0" prefHeight="16.0" prefWidth="119.0" text="Program States: 0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+         <GridPane.margin>
+            <Insets left="10.0" top="100.0" />
+         </GridPane.margin></Label>
+      <TableView fx:id="semaphoreTableView" prefHeight="200.0" prefWidth="276.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+        <columns>
+          <TableColumn fx:id="semaphoreAddress" prefWidth="75.0" text="Address" />
+          <TableColumn fx:id="noThreads" prefWidth="75.0" text="Permits" />
+            <TableColumn fx:id="threadsList" prefWidth="125.0" text="Threads list" />
+        </columns>
+      </TableView>
+      <Label text="Semaphore Table" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</GridPane>
