@@ -1,6 +1,8 @@
 # ToyLanguageInterpreter
 This is the final version of the interpreter I had to code for the APM course.
 
+Over the course of the semester various features were added, as: arithmetic expressions, file support, heap, conditionals, loops, threading.  
+
 At the end a GUI was required which provided a visualization of the step by step execution of the program.
 
 ![First two windows of the GUI](https://raw.githubusercontent.com/redount2k9/ToyLanguageInterpreterGUI/master/imgs/1.png)
